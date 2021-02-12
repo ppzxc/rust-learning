@@ -1,32 +1,51 @@
-extern crate aggregator;
-
-use aggregator::Summarizable;
-use aggregator::Tweet;
-
-struct WeatherForecast {
-    high_temp: f64,
-    low_temp: f64,
-    chance_of_precipitation: f64,
-}
-
-impl Summarizable for WeatherForecast {
-    fn summary(&self) -> String {
-        format!("The high will be {}, and the low will be {}. The chance of
-        precipitation is {}%.", self.high_temp, self.low_temp,
-        self.chance_of_precipitation)
+////////////////////////////////////////
+/// 
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
     }
 }
 
 fn main() {
-    let tweet = Tweet {
-        username: String::from("horse_ebooks"),
-        content: String::from("of course, as you probably already know, people"),
-        reply: false,
-        retweet: false,
-    };
+    let string1 = String::from("long string is long");
 
-    println!("1 new tweet: {}", tweet.summary());
+    {
+        let string2 = String::from("xyz");
+        let result = longest(string1.as_str(), string2.as_str());
+        println!("The longest string is {}", result);
+    }
 }
+// extern crate aggregator;
+
+// use aggregator::Summarizable;
+// use aggregator::Tweet;
+
+// struct WeatherForecast {
+//     high_temp: f64,
+//     low_temp: f64,
+//     chance_of_precipitation: f64,
+// }
+
+// impl Summarizable for WeatherForecast {
+//     fn summary(&self) -> String {
+//         format!("The high will be {}, and the low will be {}. The chance of
+//         precipitation is {}%.", self.high_temp, self.low_temp,
+//         self.chance_of_precipitation)
+//     }
+// }
+
+// fn main() {
+//     let tweet = Tweet {
+//         username: String::from("horse_ebooks"),
+//         content: String::from("of course, as you probably already know, people"),
+//         reply: false,
+//         retweet: false,
+//     };
+
+//     println!("1 new tweet: {}", tweet.summary());
+// }
 
 /////////////////////////////////////////
 // use std::io;
